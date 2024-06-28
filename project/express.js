@@ -1,5 +1,14 @@
 const express = require('express');
 const app = express();
+const ejs = require('ejs');
+
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
+app.get('/', (req, res) => {
+    const data = { name: 'World' };
+    res.render('index', data);
+});
 
 app.listen(3000, () => {
     console.log('Сервер запущен на порту 3000');
